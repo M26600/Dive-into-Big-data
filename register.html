@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - RentEasy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-tools"></i>
+                <span>RentEasy</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="browse.html" class="nav-link">Browse Items</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="register.html" class="nav-link btn-register active">Register</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Form -->
+    <div class="form-container">
+        <div id="messageContainer"></div>
+        
+        <h2><i class="fas fa-user-plus"></i> Create Your Account</h2>
+        <p class="text-center mb-3">Join RentEasy and start renting equipment today!</p>
+        
+        <form id="registrationForm" action="php/register.php" method="POST">
+            <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Address *</label>
+                <textarea id="address" name="address" rows="3" required placeholder="Street, City, State, ZIP"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="dateOfBirth">Date of Birth *</label>
+                <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password *</label>
+                <input type="password" id="password" name="password" required>
+                <small>Password must be at least 6 characters long</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password *</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="userType">User Type *</label>
+                <select id="userType" name="userType" required>
+                    <option value="">Select User Type</option>
+                    <option value="renter">Renter (I want to rent items)</option>
+                    <option value="owner">Owner (I want to rent out my items)</option>
+                    <option value="both">Both</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="terms" name="terms" required>
+                    I agree to the <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a> *
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="newsletter" name="newsletter">
+                    Subscribe to our newsletter for updates and special offers
+                </label>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <i class="fas fa-user-plus"></i> Create Account
+            </button>
+        </form>
+        
+        <div class="text-center mt-3">
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-tools"></i> RentEasy</h3>
+                    <p>Making equipment rental simple and accessible for everyone.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="browse.html">Browse Items</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 RentEasy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Additional registration form handling
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (RentEasy.validateForm(this)) {
+                RentEasy.showLoading('messageContainer');
+                
+                // Simulate form submission (replace with actual AJAX call)
+                setTimeout(() => {
+                    RentEasy.hideLoading('messageContainer');
+                    RentEasy.showSuccessMessage('Registration successful! Please check your email to verify your account.', 'messageContainer');
+                    this.reset();
+                }, 2000);
+            }
+        });
+
+        // Age validation for date of birth
+        document.getElementById('dateOfBirth').addEventListener('change', function() {
+            const birthDate = new Date(this.value);
+            const today = new Date();
+            const age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            
+            if (age < 18) {
+                RentEasy.showError(this, 'You must be at least 18 years old to register');
+            }
+        });
+    </script>
+</body>
+</html>

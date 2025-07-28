@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentEasy - Equipment Rental System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-tools"></i>
+                <span>RentEasy</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="browse.html" class="nav-link">Browse Items</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="register.html" class="nav-link btn-register">Register</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Rent Equipment Easily</h1>
+            <p>Find and rent tools, cameras, vehicles, and more from trusted local providers</p>
+            <div class="hero-buttons">
+                <a href="browse.html" class="btn btn-primary">Browse Items</a>
+                <a href="register.html" class="btn btn-secondary">Join Today</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="images/hero-equipment.jpg" alt="Rental Equipment">
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <h2>Find What You Need</h2>
+            <div class="search-form">
+                <input type="text" id="searchInput" placeholder="Search for equipment...">
+                <select id="categorySelect">
+                    <option value="">All Categories</option>
+                    <option value="tools">Tools</option>
+                    <option value="cameras">Cameras</option>
+                    <option value="vehicles">Vehicles</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="outdoor">Outdoor Equipment</option>
+                </select>
+                <button class="btn btn-primary" onclick="searchItems()">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="featured-categories">
+        <div class="container">
+            <h2>Popular Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <i class="fas fa-hammer"></i>
+                    <h3>Tools</h3>
+                    <p>Power tools, hand tools, and construction equipment</p>
+                    <a href="browse.html?category=tools" class="btn btn-outline">Browse Tools</a>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-camera"></i>
+                    <h3>Cameras</h3>
+                    <p>Professional cameras, lenses, and photography equipment</p>
+                    <a href="browse.html?category=cameras" class="btn btn-outline">Browse Cameras</a>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-car"></i>
+                    <h3>Vehicles</h3>
+                    <p>Cars, trucks, motorcycles, and specialty vehicles</p>
+                    <a href="browse.html?category=vehicles" class="btn btn-outline">Browse Vehicles</a>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Electronics</h3>
+                    <p>Laptops, projectors, audio equipment, and more</p>
+                    <a href="browse.html?category=electronics" class="btn btn-outline">Browse Electronics</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Items -->
+    <section class="featured-items">
+        <div class="container">
+            <h2>Featured Rentals</h2>
+            <div class="items-grid" id="featuredItems">
+                <!-- Featured items will be loaded here via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Browse & Search</h3>
+                    <p>Find the equipment you need from our extensive catalog</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Book Online</h3>
+                    <p>Select your dates and submit a booking request</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Pick Up</h3>
+                    <p>Collect your rental and start using it right away</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Return</h3>
+                    <p>Return the item on time and leave a review</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-tools"></i> RentEasy</h3>
+                    <p>Making equipment rental simple and accessible for everyone.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="browse.html">Browse Items</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="browse.html?category=tools">Tools</a></li>
+                        <li><a href="browse.html?category=cameras">Cameras</a></li>
+                        <li><a href="browse.html?category=vehicles">Vehicles</a></li>
+                        <li><a href="browse.html?category=electronics">Electronics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@renteasy.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Main St, City, State</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 RentEasy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
